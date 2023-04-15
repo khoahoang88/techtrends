@@ -5,7 +5,22 @@ docker build -t techtrends . --platform linux/amd64
 docker run -d -p 7111:3111 760e0b14141c
 
 ## Docker commands used to get the application logs
-# TODO: insert the docker logs command
+docker logs --follow e50a90b39bf7
 
 ## Logs from the container running the TechTrends application
-docker logs --follow e50a90b39bf7
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 807-970-756
+192.168.56.1 - - [13/Apr/2023 15:39:43] "GET / HTTP/1.1" 200 -
+192.168.56.1 - - [13/Apr/2023 15:39:43] "GET /static/css/main.css HTTP/1.1" 304 -
+[2023-04-13 15:39:44,842] DEBUG in app: Article 2020 CNCF Annual Report retrieved!
+192.168.56.1 - - [13/Apr/2023 15:39:44] "GET /1 HTTP/1.1" 200 -
+192.168.56.1 - - [13/Apr/2023 15:39:44] "GET /static/css/main.css HTTP/1.1" 304 -

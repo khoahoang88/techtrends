@@ -12,14 +12,14 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
   
-replicaCount: 3
+replicaCount: 1
 resources:
   request:
-    memory: 90Mi
-    CPU: 300M
+    memory: 64Mi
+    CPU: 200M
   limits:
     memory: 128Mi
-    CPU: 500M
+    CPU: 300M
 containerPort: 3111
 livenessProbe:
   path: /healthz

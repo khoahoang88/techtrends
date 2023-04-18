@@ -18,6 +18,7 @@ spec:
       labels:
         app: techtrends
     spec:
+      imagePullSecrets: [{name:eyJhdXRocyI6eyJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOnsidXNlcm5hbWUiOiIwOTA2Nzg0NDgwIiwicGFzc3dvcmQiOiJASG5hazQ3MzcjIiwiZW1haWwiOiJob2FuZy5raG9hODhAZ21haWwuY29tIiwiYXV0aCI6Ik1Ea3dOamM0TkRRNE1EcEFTRzVoYXpRM016Y2oifX19}]
       containers:
       - image: {{.Values.image.repository}}:{{.Values.image.tag}}
         imagePullPolicy: {{.Values.image.pullPolicy}}

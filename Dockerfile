@@ -1,6 +1,6 @@
 FROM python:3.8
 LABEL maintainer="Khoahna2"
-
+EXPOSE 3111
 COPY ./techtrends/ /app
 WORKDIR /app
 

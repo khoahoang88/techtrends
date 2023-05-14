@@ -2,7 +2,6 @@ import sqlite3
 import logging
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
-import sys
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
@@ -44,6 +43,7 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
+      app.logger.info('Article does not exist')
       return render_template('404.html'), 404
     else:
       return render_template('post.html', post=post)
@@ -98,8 +98,8 @@ def metrics():
 
 # start the application on port 3111
 if __name__ == "__main__":
-   logging.basicConfig(level=logging.DEBUG, handlers=[
-        logging.StreamHandler(sys.stdout), logging.StreamHandler(sys.stderr)],
-                        format='[%(asctime)s] - %(message)s',
-                        datefmt='%H:%M:%S')
+   logging.basicConfig(
+        format='%(levelname)s:%(name)s:%(asctime)s, %(message)s',
+                level=logging.DEBUG,
+    )
    app.run(host='0.0.0.0', port='3111', debug=True)

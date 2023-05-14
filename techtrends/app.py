@@ -21,8 +21,6 @@ def get_post(post_id):
     post = connection.execute('SELECT * FROM posts WHERE id = ?',
                         (post_id,)).fetchone()
     connection.close()
-    app.logger.debug('Article ' + post["title"] + ' retrieved!')
-    print('Article ' + post["title"] + ' retrieved!')
     return post
 
 # Define the Flask application
@@ -46,6 +44,8 @@ def post(post_id):
       app.logger.info('Article does not exist')
       return render_template('404.html'), 404
     else:
+      app.logger.debug('Article ' + post["title"] + ' retrieved!')
+      print('Article ' + post["title"] + ' retrieved!') 
       return render_template('post.html', post=post)
 
 # Define the About Us page
